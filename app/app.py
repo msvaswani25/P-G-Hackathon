@@ -85,9 +85,21 @@ def add_user():
     return jsonify(user)            
              
                 
+@app.route("/getChildren", methods=['GET'])
+def getChildren():
+    usersNames=[]
+    users_data=os.listdir("user_data")
+    for user_file in users_data:
+        usersNames.append(json.load(open('user_data/'+user_file))['name'])
+    return jsonify(usersNames)    
+        
+
 @app.route("/addChild")
 def addChild():
     return render_template('add_child.html')
+@app.route("/game")
+def game():
+    return render_template('game.html')
 @app.route("/")
 def main():
     return render_template('index.html')

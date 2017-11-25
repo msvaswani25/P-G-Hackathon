@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Orab-B Teeth Health Analytics</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <style>
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 14px;
+    font-size: 14 px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+.image{
+max-width: 100%; 
+display:block; 
+height: auto;
+}
+</style>
+<script type = "text/javascript">
+          function displayNextImage() {
+              x = (x === images.length - 1) ? 0 : x + 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function displayPreviousImage() {
+              x = (x <= 0) ? images.length - 1 : x - 1;
+              document.getElementById("img").src = images[x];
+          }
+
+          function startTimer() {
+              setInterval(displayNextImage, 9000);
+          }
+
+          var images = [], x = -1;
+          images[0] = "../static/img/1.jpg";
+          images[1] = "../static/img/2.jpg";
+          images[2] = "../static/img/3.jpg";
+		  images[3] = "../static/img/4.jpg";
+		  images[4] = "../static/img/5.jpg";
+		  images[5] = "../static/img/6.jpg";
+      </script>
+  </head>
+
+  <body onload = "startTimer()">
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/addChild">Add Child</a></li>
+            <li role="presentation"><a href="/insights">Data Insight</a></li>
+			<li role="presentation" class="active"><a href="#">The Game</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Orab-B Teeth Health Analytics</h1>
+		<div class="container">
+		<center>
+
+		<img class="image" id="img" src="../static/img/1.jpg"/>
+</center>
+		
+
+		</div>
+      </div>
+	  
+
+      
+
+      <footer class="footer">
+        <p>&copy; P&G Hackathon 2017</p>
+      </footer>
+
+    </div>
+  </body>
+  
+</html>

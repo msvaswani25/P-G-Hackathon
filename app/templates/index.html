@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Orab-B Teeth Health Analytics</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <style>
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #f1f1f1;
+    color: black;
+    padding: 14px;
+    font-size: 14 px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+</style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation" ><a href="/addChild">Add Child</a></li>
+            <li role="presentation"><a href="/insights">Data Insight</a></li>
+			<li role="presentation"><a href="/game">The Game</a></li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Orab-B Teeth Health Analytics</h1>
+		<div class="container">
+		<form class="form-signin">
+				
+				<div class="dropdown">
+				Select Child:
+				   <select class="dropbtn" name="inputId" id="inputId">
+					  <option value="1">Rohit</option>
+					  <option value="2">Anush</option>
+				  </select>
+				</div>
+				<br>
+				Select Chart:
+				   <select class="dropbtn" name="chartId" id="chartId">
+					  <option value="bar">bar</option>
+					  <option value="horizontalBar">horizontalBar</option>
+					  <option value="pie">pie</option>
+					  <option value="line">line</option>
+					  <option value="doughnut">doughnut</option>
+					  <option value="radar">radar</option>
+					  <option value="polarArea">polarArea</option>
+				  </select>
+				</div>
+				<button id="getChart" class="btn btn-lg btn-primary btn-block" type="button">Generate Stats</button>
+
+		</form>
+
+			<canvas id="myChart"></canvas>
+		</div>
+	  
+
+      
+
+      <footer class="footer">
+        <p>&copy; P&G Hackathon 2017</p>
+      </footer>
+
+    </div>
+	<script>
+	$(function() {
+	
+	$('#getChart').click(function(){
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+	var e = document.getElementById("inputId");
+	var strUser = e.options[e.selectedIndex].value;
+	var f = document.getElementById("chartId");
+	var t = f.options[f.selectedIndex].value;
+	if (strUser==1){
+		let massPopChart = new Chart(myChart, {			
+		  type:t, // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+		  data:{
+			labels:['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+			datasets:[{
+			  label:'Statistics',
+			  data:[
+				40,
+				50,
+				60,
+				100,
+				80,
+				70,
+				30
+			  ],
+			  //backgroundColor:'green',
+			  backgroundColor:[
+				'rgba(255, 99, 132, 0.6)',
+				'rgba(54, 162, 235, 0.6)',
+				'rgba(255, 206, 86, 0.6)',
+				'rgba(75, 192, 192, 0.6)',
+				'rgba(153, 102, 255, 0.6)',
+				'rgba(255, 159, 64, 0.6)',
+				'rgba(255, 99, 132, 0.6)'
+			  ],
+			  borderWidth:1,
+			  borderColor:'#777',
+			  hoverBorderWidth:3,
+			  hoverBorderColor:'#000'
+			}]
+		  },
+		  options:{
+			title:{
+			  display:true,
+			  text:'Children Weekly Statistics',
+			  fontSize:25
+			},
+			legend:{
+			  display:true,
+			  position:'right',
+			  labels:{
+				fontColor:'#000'
+			  }
+			},
+			layout:{
+			  padding:{
+				left:50,
+				right:0,
+				bottom:0,
+				top:0
+			  }
+			},
+			tooltips:{
+			  enabled:true
+			}
+		  }
+		});
+	}
+	else{
+	let massPopChart = new Chart(myChart, {
+		  type:t, // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+		  data:{
+			labels:['2017-11-19', '2017-11-20', '2017-11-21', '2017-11-22', '2017-11-23', '2017-11-24','2017-11-25'],
+			datasets:[{
+			  label:'Statistics',
+			  data:[
+				80,
+				90,
+				100,
+				100,
+				80,
+				70,
+				85
+			  ],
+			  //backgroundColor:'green',
+			  backgroundColor:[
+				'rgba(255, 99, 132, 0.6)',
+				'rgba(54, 162, 235, 0.6)',
+				'rgba(255, 206, 86, 0.6)',
+				'rgba(75, 192, 192, 0.6)',
+				'rgba(153, 102, 255, 0.6)',
+				'rgba(255, 159, 64, 0.6)',
+				'rgba(255, 99, 132, 0.6)'
+			  ],
+			  borderWidth:1,
+			  borderColor:'#777',
+			  hoverBorderWidth:3,
+			  hoverBorderColor:'#000'
+			}]
+		  },
+		  options:{
+			title:{
+			  display:true,
+			  text:'Children Weekly Statistics',
+			  fontSize:25
+			},
+			legend:{
+			  display:true,
+			  position:'right',
+			  labels:{
+				fontColor:'#000'
+			  }
+			},
+			layout:{
+			  padding:{
+				left:50,
+				right:0,
+				bottom:0,
+				top:0
+			  }
+			},
+			tooltips:{
+			  enabled:true
+			}
+		  }
+		});
+	}
+});});
+
+
+  </script>
+  </body>
+  
+</html>
