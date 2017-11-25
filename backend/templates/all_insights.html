@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Orab-B Teeth Health Analytics</title>
+
+   
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/js/insights.js"></script>
+   
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="addChild">Add Child</a></li>
+            <li role="presentation" class="active"><a href="#">All Insights</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      
+<div class="jumbotron">
+        <h1>Orab-B Teeth Health Analytics</h1>
+        <form class="form-signin">
+        <label for="inputId" class="sr-only">id</label>
+        <input type="id" name="inputId" id="inputId" class="form-control" placeholder="ID" required autofocus>     
+        <button id="btnGetUser" class="btn btn-lg btn-primary btn-block" type="button">Get</button>
+      </form>
+      </div>
+	  <div class="jumbotron">
+            <p class="user_id"></p>
+            <p class="user_name"></p>
+			<p class="user_age"></p>
+            <p class="user_total_score"></p>
+			<p class="user_daily_score"></p>
+        </div>
+	  
+
+      
+
+      <footer class="footer">
+        <p>&copy; P&G Hackathon 2017</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
